@@ -1,0 +1,82 @@
+<div class='container-fluid'>
+    <div class="row">
+       <div class="col-md-3">
+
+       </div>
+
+
+        <div class="col-md-5">
+         <div class='row' *ngFor="let food of allFoods" style="border-bottom: 1px solid #eee;padding: 10px;">
+            <div class='col-md-10'>
+                <br>
+               <span color='warn' style="color:tomato;font-size: large;font-family: Lato,Helvetica,Arial,sans-serif!important;font-weight: 550;">{{food.name}}</span><br>
+                <span>{{food.description}}</span>
+               <br>
+              <!--<img src="{{'http://127.0.0.1:8000'+ food.picture}}" alt='Image of Foo' class='img-fluid'> -->
+               
+               </div>
+               <div class='col-md-2'>
+                   <span style="color: red;font-weight: 550;"> {{food.price + ' ETB'}}</span>
+                   <br>
+                   <br>
+               
+              <mat-icon style='cursor:pointer;color: #aaa;margin: auto;display: block;' (click)='addOrder(food.id)'>add_circle_outline</mat-icon>
+            </div>
+         </div>
+
+      </div>
+      <div class="col-md-1">
+
+      </div>
+    
+
+
+       <div class="col-md-2"> 
+        <span style="font-size: 30px;">
+            <mat-icon color='warn' style="font-size: 30px;">shopping_cart</mat-icon> Food Cart
+           </span>
+           <br>
+           <br>
+
+           <div style='border:1px solid #eee;padding: 90px 5px 10px 5px;background-color: #777; min-height: 300px;color: white;border-radius: 6px;' *ngIf='order.length == 0'>
+            <span ><mat-icon style="margin: auto;display: block;">fastfood</mat-icon>   </span><br>
+            <h1 class="h1 font-weight-bold text-center">No Food Added</h1>
+           </div>
+
+           <div *ngIf='order.length > 0'> 
+               <div *ngFor='let i of order'>
+                <span><mat-icon style="font-size: 14px;height: 100%;cursor: pointer;" color='warn'   (click)='deleteOrder(i.item_id)' > delete_outline</mat-icon></span>
+                   <span style="padding-right: 13px;" >{{getFood(i.item_id).name}}</span>
+                   
+                   <span><mat-icon color='warn' style="font-size: 14px;text-align: center;cursor: pointer;"  (click)='plusOrder(i.item_id)'>add</mat-icon></span>
+                   <span>{{i.no_of_order}}</span>
+                   <span style="padding-right: 7px;"><mat-icon color='warn' style="font-size: 14px;text-align: center;cursor: pointer;"  (click)='minusOrder(i.item_id)'>remove</mat-icon></span>
+
+                   
+                   <span style="padding-left: 10px;">{{i.total + ' ETB'}} </span>
+
+                   
+                   <hr>
+                   
+
+               </div>
+
+               <span><span style="padding-right: 53px;"> Total: </span> {{total + ' ETB'}}</span>
+               <br>
+               <br>
+               <button mat-raised-button style="width: 100%;" color='accent' (click)='finishOrder()'>Finish Order</button>
+
+           </div>
+           
+
+       </div>
+       <div class="col-md-1">
+
+       </div>
+      
+    </div>
+<div>
+
+
+
+    

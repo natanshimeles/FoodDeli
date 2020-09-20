@@ -1,0 +1,60 @@
+
+<div style='display:flex;justify-content: space-between;padding:340px;padding-top:240px; margin:auto;background-color:#f0f2f5; height:100%;' >
+<div style='flex-grow: 1;'> 
+
+<h1 style='font-size:60px;color:#f97516'>Celavi Burger</h1>
+<h2 style='text-align:center'> hello</h2>
+
+
+</div>
+
+
+<div style='flex-grow: 1;'>
+
+
+
+
+
+
+
+
+  
+  <form class="modal-content animate" (ngSubmit)=login() [formGroup]='loginForm' style='margin:0px;width:80%; border:none;box-shadow: 2px 2px 2px 2px #cccccc;'>
+
+   
+    <div >
+     
+      <mat-form-field style='border:solid; padding:16px;border-color:#cccccc;border-radius:9px;border-width:1px;padding-bottom:0px;padding-top:0px' appearance="none">
+          <mat-label>User name</mat-label>
+      <input  matInput    autocomplete="off" formControlName='username' > 
+    </mat-form-field>
+    <br>
+    <br>
+
+    <mat-form-field style='border:solid; padding:16px;border-color:#cccccc;border-radius:9px;border-width:1px;padding-bottom:0px;padding-top:0px' appearance="none"> 
+        <mat-label>Password</mat-label>
+      <input matInput  formControlName='password' [type]="hide ? 'password' : 'text'" > 
+    
+        <mat-icon mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    
+      </mat-form-field>
+      <br>
+      <br>
+      <br>
+        
+      <button type="submit" mat-raised-button color='primary' style="width: 100%;padding-bottom:10px;padding-top:10px;border-radius:9px" >Login</button>
+      <br>
+      <br>
+        <mat-progress-bar mode='indeterminate' *ngIf='loginInProgress'></mat-progress-bar>
+     
+    </div>
+    
+
+
+    
+  </form>
+
+</div>
+
+
+</div>

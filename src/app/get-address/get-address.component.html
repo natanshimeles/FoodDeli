@@ -1,0 +1,38 @@
+<div class='container-fluid'>
+  <div class="row">
+     <div class="col-md-3">
+
+     </div>
+     <div class="col-md-5">
+       <mat-vertical-stepper [linear]="true" #stepper>
+         <mat-step >
+           <form>
+             <mat-form-field>
+               <mat-label>Address</mat-label>
+               <input  matInput >
+             </mat-form-field>  
+           </form>
+         </mat-step >
+         <mat-step>
+           Confirmm Order
+           <div *ngFor='let i of orders'>
+             <span>
+               {{orders.no_of_order}}
+
+             </span>
+             <span>
+              {{orders.total}}
+
+             </span>
+           </div>
+         </mat-step>
+         <mat-step>
+          Pay
+        </mat-step>
+      </mat-vertical-stepper >
+    </div>
+  <div class="col-md-3">
+
+  </div>
+</div>
+</div>
